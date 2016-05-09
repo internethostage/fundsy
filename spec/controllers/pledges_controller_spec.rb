@@ -11,8 +11,9 @@ RSpec.describe PledgesController, type: :controller do
         expect(response).to redirect_to new_user_path
       end
     end
+    
     describe "with a signed in user" do
-      before { request.session[:user_id] = user.id}
+      before { login(user) }
       it "renders the new template" do
         get :new, campaign_id: campaign.id
         expect(response).to render_template(:new)
