@@ -1,0 +1,27 @@
+<br>
+<br>
+<div>
+  <div id="map" style='height: 400px; border-radius: 20px;'></div>
+</div>
+
+<script>
+  handler = Gmaps.build('Google');
+  handler.buildMap({ provider: {
+    mapTypeId: google.maps.MapTypeId.TERRAIN
+  }, internal: {id: 'map'}}, function(){
+    markers = handler.addMarkers(<%=raw @markers.to_json %>);
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+    // handler.getMap().setZoom(15);
+});
+</script>
+
+<!-- <script>
+  handler = Gmaps.build('Google');
+  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+  markers = handler.addMarkers(<%=raw @markers.to_json %>);
+  handler.bounds.extendWith(markers);
+  handler.fitMapToBounds();
+  // handler.getMap().setZoom(17);
+  });
+</script> -->

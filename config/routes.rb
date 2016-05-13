@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   get "/auth/twitter", as: :sign_in_with_twitter
   get "/auth/twitter/callback" => "callbacks#twitter"
 
-
+  resources :nearby_campaigns, only: [:index]
+  
   resources :campaigns do
     resources :pledges, only: [:new, :create]
   end
