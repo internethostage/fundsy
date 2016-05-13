@@ -31,6 +31,9 @@ gem 'simple_form'
 
 gem 'active_model_serializers'
 
+gem 'omniauth-twitter'
+gem 'twitter'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
