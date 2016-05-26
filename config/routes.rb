@@ -5,9 +5,12 @@ Rails.application.routes.draw do
   get "/auth/twitter/callback" => "callbacks#twitter"
 
   resources :nearby_campaigns, only: [:index]
-  
+
   resources :campaigns do
     resources :pledges, only: [:new, :create]
+    resources :publishings, only: [] do
+      patch :update, on: :collection
+    end
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
