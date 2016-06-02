@@ -22,7 +22,7 @@ class CampaignsController < ApplicationController
       @campaign = Campaign.new(campaign_params)
       @campaign.user = current_user
       if @campaign.save
-        CampaignGoalJob.set(wait_until: @campaign.end_date).perform_later(@campaign)
+        # CampaignGoalJob.set(wait_until: @campaign.end_date).perform_later(@campaign)
         redirect_to campaign_path(@campaign), notice: "Campaign created!"
       else
         gen_count = 3 - @campaign.rewards.size
@@ -52,7 +52,7 @@ class CampaignsController < ApplicationController
 private
 
   def find_campaign
-    @campaign = Campaign.find params[:id]
+    @campaign = Campaign.find(params[:id]).decorate
   end
 
   def campaign_params

@@ -45,6 +45,8 @@ gem 'quiet_assets'
 
 gem 'aasm'
 
+gem 'draper'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
