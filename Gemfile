@@ -47,6 +47,8 @@ gem 'aasm'
 
 gem 'draper'
 
+gem 'stripe'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
