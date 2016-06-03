@@ -49,6 +49,10 @@ gem 'draper'
 
 gem 'stripe'
 
+gem 'virtus'
+
+gem "bullet", :group => "development"
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
